@@ -4,7 +4,7 @@ import SingleTask from '../Single Task/SingleTask';
 const Tasks = () => {
     const [tasks, setTasks] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/task')
+        fetch('https://damp-beach-13268.herokuapp.com/task')
             .then(res => res.json())
             .then(data => setTasks(data));
     }, [])

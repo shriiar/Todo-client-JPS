@@ -6,14 +6,12 @@ import Home from './Components/Pages/Home/Home';
 import RequireAuth from './Components/Shared/RequiredAuth/RequiredAuth';
 import Tasks from './Components/Pages/Tasks/Tasks';
 import AddTask from './Components/Pages/Add Task/AddTask';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <div>
       <Header></Header>
       <Routes>
-        <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/tasks' element={<RequireAuth>
           <Tasks></Tasks>
         </RequireAuth>}></Route>

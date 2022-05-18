@@ -1,4 +1,6 @@
 import React from 'react';
+import addImg from '../../../img/undraw_Add_files_re_v09g.png';
+import './AddTask.css'
 
 const AddTask = () => {
     const EventSubmit = (event) => {
@@ -12,7 +14,7 @@ const AddTask = () => {
             description: description,
             completed: "false"
         }
-        const url = `http://localhost:5000/task`;
+        const url = `https://damp-beach-13268.herokuapp.com/task`;
         fetch(url, {
             method: 'POST',
             headers: {
@@ -24,20 +26,31 @@ const AddTask = () => {
             .then(result => {
                 console.log('Added Successfullt')
             })
-        // event.target.reset();
+        event.target.reset();
     }
     return (
         <div>
-            <form onSubmit={EventSubmit} className="w-100 mx-auto d-flex justify-content-center flex-column">
-                <div className="w-75 mx-auto d-flex justify-content-center flex-column mb-3">
-                    <input placeholder='Add Task Name' type="text" name="name" required />
+            <div style={{ margin: "0 0 1050px 0" }} class="page-add">
+                <div class="container-add">
+                    <div class="left-add">
+                        <div class="login">Add Task</div>
+                        <img src={addImg} className='img-fluid' alt="" />
+                    </div>
+                    <div class="right-add d-flex flex-column justify-content-center align-items-center">
+                        <form onSubmit={EventSubmit} className="mx-auto">
+                            <div className="input-group">
+                                <label htmlFor='name'></label>
+                                <input placeholder='Add Task Name' type="text" name="name" required />
+                            </div>
+                            <div className="input-group">
+                                <textarea placeholder='Add Task Description' type="text" name="description" required />
+                            </div>
+                            <input className='form-submit button-33' type="submit" required value="Submit" />
+                        </form>
+                    </div>
                 </div>
-                <div className="w-75 mx-auto d-flex justify-content-center flex-column">
-                    <input placeholder='Add Task Description' type="text" name="description" required />
-                </div>
-                <input className='form-submit button-33 w-50 mx-auto mt-4' type="submit" required value="Submit" />
-            </form>
-        </div>
+            </div>
+        </div >
     );
 };
 
